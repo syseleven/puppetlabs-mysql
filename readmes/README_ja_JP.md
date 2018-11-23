@@ -19,6 +19,7 @@
 6. [開発 - モジュール貢献についてのガイド](#development)
 
 ## モジュールの概要
+<a name="module-descriptionl">
 
 mysqlモジュールは、MySQLサービスをインストール、設定、管理します。
 
@@ -27,6 +28,7 @@ mysqlモジュールは、MySQLサービスをインストール、設定、管�
 ## セットアップ
 
 ### mysqlの導入
+<a name="beginning-with-mysql">
 
 デフォルトのオプションを使用してサーバをインストールするには、次のコマンドを使用します。
 
