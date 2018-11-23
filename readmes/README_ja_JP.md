@@ -28,7 +28,7 @@ mysqlモジュールは、MySQLサービスをインストール、設定、管�
 
 ## セットアップ
 
-<a name="beginning-with-mysql"/>
+<a id="beginning-with-mysql"/>
 
 ### mysqlの導入
 
@@ -95,7 +95,7 @@ replicate-do-db = base2
 
 バージョンに固有なパラメータを実装するには、[mysqld-5.5]のようにバージョンを指定します。こうすると、1つのconfigで複数の異なるバージョンのMySQLに対応できます。
 
-<a name="create-a-database"/>
+<a id="create-a-database"/>
 
 ### データベースを作成します
 
@@ -145,7 +145,7 @@ mysql::db { 'mydb':
 }
 ```
 
-<a name="customize-configuration"/>
+<a id="customize-configuration"/>
                   
 ### 設定のカスタマイズ
 
@@ -414,7 +414,7 @@ MySQLモジュールにはサンプルタスクがあり、ユーザはデータ
 
 **注意：** mysqlbackup.shは、MySQL 5.7以降では動作せず、サポートされていません。
 
-<a name="development"/>
+<a id="development"/>
 
 ## 開発
 
