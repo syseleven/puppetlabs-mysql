@@ -19,7 +19,7 @@
 6. [開発 - モジュール貢献についてのガイド](#development)
 
 ## モジュールの概要
-<a name="module-descriptionl">
+<a name="module-description"/>
 
 mysqlモジュールは、MySQLサービスをインストール、設定、管理します。
 
@@ -28,7 +28,7 @@ mysqlモジュールは、MySQLサービスをインストール、設定、管�
 ## セットアップ
 
 ### mysqlの導入
-<a name="beginning-with-mysql">
+<a name="beginning-with-mysql"/>
 
 デフォルトのオプションを使用してサーバをインストールするには、次のコマンドを使用します。
 
@@ -409,6 +409,7 @@ MySQLモジュールにはサンプルタスクがあり、ユーザはデータ
 **注意：** mysqlbackup.shは、MySQL 5.7以降では動作せず、サポートされていません。
 
 ## 開発
+<a name="development"/>
 
 Puppet Forge上のPuppetモジュールはオープンプロジェクトであり、その価値を維持するにはコミュニティからの貢献が欠かせません。Puppetが提供する膨大な数のプラットフォームや、無数のハードウェア、ソフトウェア、デプロイ設定に弊社がアクセスすることは不可能です。
 
