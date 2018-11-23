@@ -145,6 +145,8 @@ mysql::db { 'mydb':
 }
 ```
 
+<a name="customize-configuration"/>
+                  
 ### 設定のカスタマイズ
 
 MySQLカスタム設定を追加するには、`includedir`にファイルを追加します。こうすると設定値をオーバーライドしたり別の設定値を追加したりすることができ、`mysql::server`で`override_options`を使用しない場合に役立ちます。`includedir`の場所は、デフォルトでは`/etc/mysql/conf.d`に設定されます。
