@@ -18,11 +18,15 @@
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
+<a id="module-description"></a>
+
 ## Module Description
 
 The mysql module installs, configures, and manages the MySQL service.
 
 This module manages both the installation and configuration of MySQL, as well as extending Puppet to allow management of MySQL resources, such as databases, users, and grants.
+
+<a id="setup"></a>
 
 ## Setup
 
