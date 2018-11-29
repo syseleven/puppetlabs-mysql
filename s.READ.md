@@ -640,4 +640,4 @@ Check out our the complete [module contribution guide](https://docs.puppetlabs.c
   - Jan-Otto Kröpke
   - Timothy Sven Nelson
 
-<!-- Wed Nov 28 09:46:26 UTC 2018 -->
+<!-- Thu Nov 29 09:46:24 UTC 2018 -->
