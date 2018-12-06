@@ -13,7 +13,7 @@
 
 #. metadata.json
 #: .summary
-msgid "Installs, configures, and manages the MySQL service."
+msgid "Installs, configures, and manages the MySQL service.."
 msgstr ""
 
 #. metadata.json
