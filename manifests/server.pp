@@ -19,6 +19,8 @@
 #   Path to secret file containing temporary root password.
 # @param manage_config_file
 #   Whether the MySQL configuration file should be managed. Valid values are `true`, `false`. Defaults to `true`.
+# @param options
+#   A hash of options structured like the override_options, but not merged with the default options. Use this if you don’t want your options merged with the default options.
 # @param override_options
 #   Specifies override options to pass into MySQL. Structured like a hash in the my.cnf file:  See  above for usage details.
 # @param package_ensure
@@ -52,11 +54,11 @@
 # @param create_root_my_cnf
 #   Whether to create `/root/.my.cnf`. Valid values are `true`, `false`. Defaults to `true`. `create_root_my_cnf` allows creation of `/root/.my.cnf` independently of `create_root_user`. You can use this for a cluster setup with Galera where you want `/root/.my.cnf` to exist on all nodes.
 # @param users
-#   Optional hash of users to create, which are passed to [mysql_user](#mysql_user). 
+#   Optional hash of users to create, which are passed to [mysql_user](#mysql_user).
 # @param grants
-#   Optional hash of grants, which are passed to [mysql_grant](#mysql_grant). 
+#   Optional hash of grants, which are passed to [mysql_grant](#mysql_grant).
 # @param databases
-#   Optional hash of databases to create, which are passed to [mysql_database](#mysql_database). 
+#   Optional hash of databases to create, which are passed to [mysql_database](#mysql_database).
 # @param enabled
 #   _Deprecated_
 # @param manage_service
@@ -70,6 +72,7 @@ class mysql::server (
   $install_options         = undef,
   $install_secret_file     = $mysql::params::install_secret_file,
   $manage_config_file      = $mysql::params::manage_config_file,
+  $options                 = {},
   $override_options        = {},
   $package_ensure          = $mysql::params::server_package_ensure,
   $package_manage          = $mysql::params::server_package_manage,
@@ -115,8 +118,16 @@ class mysql::server (
     warning(translate('The `old_root_password` attribute is no longer used and will be removed in a future release.'))
   }
 
-  # Create a merged together set of options.  Rightmost hashes win over left.
-  $options = mysql::normalise_and_deepmerge($mysql::params::default_options, $override_options)
+  if ! empty($options) and ! empty($override_options) {
+    fail(translate('You can\'t specify $options and $override_options simultaneously, see the README section \'Customize server options\'!'))
+  }
+
+  # If override_options are set, create a merged together set of options. Rightmost hashes win over left.
+  # If options are set, just use them.
+  $_options = empty($options) ? {
+    true  => mysql::normalise_and_deepmerge($mysql::params::default_options, $override_options),
+    false => $options,
+  }
 
   Class['mysql::server::root_password'] -> Mysql::Db <| |>
 
